@@ -1,13 +1,11 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
-HEAD
 import argparse
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline, make_pipeline
 import os
 from joblib import dump
-feature/add-training-logic
 def load_and_validate_data(data_path: str) -> pd.DataFrame:
     """
     Loads data from a CSV and ensures it has the required columns.
