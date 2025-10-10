@@ -8,12 +8,14 @@ on:
       - "data/**"
       - "requirements.txt"
       - ".github/workflows/**"
+      - "models/**"
   pull_request:
     paths:
       - "src/**"
       - "data/**"
       - "requirements.txt"
       - ".github/workflows/**"
+      - "models/**"
 jobs:
   run-predict:
     runs-on: ubuntu-latest
