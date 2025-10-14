@@ -1,5 +1,7 @@
 import pytest
+
 from src.predict import load_model, predict_texts
+
 
 @pytest.fixture(scope="module")
 def model():
@@ -7,14 +9,15 @@ def model():
     model_path = "models/sentiment.joblib"
     return load_model(model_path)
 
+
 @pytest.mark.parametrize(
     "input_text, expected_label",
     [
-        ("I absolutely love this movie, it's fantastic!", 1),   # Positive
+        ("I absolutely love this movie, it's fantastic!", 1),  # Positive
         ("The service was terrible and the food was disgusting.", 0),  # Negative
         ("This is a wonderful experience, I enjoyed every moment!", 1),  # Positive
-        ("I hate this product, it was a complete waste of money.", 0)   # Negative
-    ]
+        ("I hate this product, it was a complete waste of money.", 0),  # Negative
+    ],
 )
 def test_sentiment_predictions(model, input_text, expected_label):
     """
