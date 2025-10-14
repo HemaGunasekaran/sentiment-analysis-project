@@ -57,6 +57,26 @@ jobs:
  
       - name: Run tests with pytest
         run: pytest -v
+        
+  lint-and-format:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Ruff
+        run: pip install ruff
+
+      - name: Run Ruff linting
+        run: ruff check .
+
+      - name: Run Ruff formatting check
+        run: ruff format --check .      
 
   build-and-push:
     runs-on: ubuntu-latest
